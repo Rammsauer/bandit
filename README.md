@@ -114,4 +114,25 @@ cat data.txt | sort | uniq -u
 ```console
 ssh bandit9@bandit.labs.overthewire.org -p 2220
 ls -Al
+strings data.txt | grep ===
 ```
+> }========== the <br>
+> 3JprD========== passwordi <br>
+> ~fDV3========== is <br>
+> D9========== FGUW5ilLVJrxX9kMYMmlN4MgbpfMiqey
+# Level 10
+> The password for the next level is stored in the file data.txt, which contains base64 encoded data
+```console
+ssh bandit10@bandit.labs.overthewire.org -p 2220
+ls -Al
+grep -E '[A-Za-z0-9+/]{4}*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)' data.txt
+echo VGhlIHBhc3N3b3JkIGlzIGR0UjE3M2ZaS2IwUlJzREZTR3NnMlJXbnBOVmozcVJyCg== | base64 --decode
+```
+> The password is dtR173fZKb0RRsDFSGsg2RWnpNVj3qRr
+# Level 11
+> The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions
+```console
+ssh bandit11@bandit.labs.overthewire.org -p 2220
+ls -Al
+```
+> 
